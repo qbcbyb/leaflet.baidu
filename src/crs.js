@@ -1,15 +1,16 @@
 import * as L from 'leaflet'
 import BaiduMercator from './projection'
 
-export default L.extend({}, L.CRS, {
+export default L.extend({}, L.CRS.Earth, {
   code: 'BAIDU',
 
   projection: BaiduMercator,
 
-  // TODO: distance
-  // distance: (latlng1, latlng2) => {
-  //   return 0
-  // },
+  wrapLng: undefined,
+
+  wrapLat: undefined,
+
+  R: 6370996.81,
 
   scale: zoom => 256 * Math.pow(2, zoom),
 
